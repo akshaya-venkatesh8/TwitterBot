@@ -9,7 +9,7 @@ var params = {
     q: "",
     result_type: 'recent',
     lang: 'en',
-    count: 10
+    count: 30
 }
 var retweet = function() {
     reTweetHashtags.forEach(element => {
@@ -19,13 +19,14 @@ var retweet = function() {
             if (!err) {
                 if (data.statuses && data.statuses.length > 0) {
                     data.statuses.forEach(element => {
-                        if (element.id_str) {
+                        // Do not retweet - retweets
+                        if (element.id_str && element.text && !element.startsWith("RT")) {
                             var retweetId = element.id_str;
                             // Tell TWITTER to retweet
                             Twitter.post('statuses/retweet/:id', {
                                 id: retweetId
                             }, function(err, response) {
-                                // if there was an error while tweeting
+                                console.log("Retweet successful:", response);
                                 if (err) {
                                     if (err.allErrors && (err.allErrors[0].code === 187 || err.allErrors[0].code === 327)) { /*do nothing*/ } else console.log("Retweet error: ", err);
                                 }
@@ -35,7 +36,7 @@ var retweet = function() {
 
                 }
             }
-            // if unable to Search a tweet
+            // In case of an error in Search
             else {
                 console.log('Search Error', err);
             }
@@ -46,5 +47,5 @@ var retweet = function() {
 
 
 };
-
+// retweet();
 setInterval(retweet, 60000);
