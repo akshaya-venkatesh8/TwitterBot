@@ -1,0 +1,25 @@
+{
+    "name": "twitter-bot",
+    "version": "1.0.0",
+    "description": "Twitter bot",
+    "main": "bot.js",
+    "scripts": {
+        "start": "node bot.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/akshaya-venkatesh8/TwitterBot.git"
+    },
+    "author": "Akshaya Venkatesh",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/akshaya-venkatesh8/TwitterBot/issues"
+    },
+    "homepage": "https://github.com/akshaya-venkatesh8/TwitterBot#readme",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "nodemon": "^2.0.4",
+        "twit": "^2.2.11"
+    }
+}
