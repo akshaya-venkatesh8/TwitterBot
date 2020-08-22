@@ -20,7 +20,7 @@ var retweet = function() {
                 if (data.statuses && data.statuses.length > 0) {
                     data.statuses.forEach(element => {
                         // Do not retweet - retweets
-                        if (element.id_str && element.text && !element.startsWith("RT")) {
+                        if (element.id_str && element.text && !element.text.startsWith("RT")) {
                             var retweetId = element.id_str;
                             // Tell TWITTER to retweet
                             Twitter.post('statuses/retweet/:id', {
