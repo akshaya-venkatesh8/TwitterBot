@@ -1,6 +1,6 @@
 var twit = require('twit');
 var config = require('./config.js');
-var reTweetHashtags = ['#codethisdesign', "#purecss", "#cssanimations", "#csstips", "#cssart"];
+var reTweetHashtags = ['#codethisdesign'];
 
 
 
